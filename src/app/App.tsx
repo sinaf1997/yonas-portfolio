@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Education from './components/Education';
 import Skills from './components/Skills';
+import Certifications from './components/Certifications';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
@@ -15,7 +17,7 @@ import ParticlesBackground from './components/ParticlesBackground';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
@@ -40,7 +42,7 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+            className="bg-white dark:bg-navy-deep text-gray-900 dark:text-white transition-colors duration-300"
           >
             <CustomCursor />
             <ScrollProgress />
@@ -48,9 +50,11 @@ export default function App() {
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
             <Hero />
             <About />
+            <Education />
             <Skills />
+            <Certifications />
+            <Experience />
             <Projects />
-            <Services />
             <Contact />
             <Footer />
           </motion.div>

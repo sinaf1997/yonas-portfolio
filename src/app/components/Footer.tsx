@@ -1,27 +1,30 @@
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiHeart } from 'react-icons/fi';
+import { FiLinkedin, FiMail, FiHeart } from 'react-icons/fi';
+import { FaTelegramPlane, FaPhone } from 'react-icons/fa';
 
 export default function Footer() {
+  const quickLinks = ['Home', 'About', 'Education', 'Skills', 'Certifications', 'Experience', 'Projects', 'Contact'];
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-navy-deep border-t border-navy-light/40 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent mb-4">
-              Portfolio
+            <h3 className="text-2xl font-black bg-gradient-to-r from-white via-royal to-royal bg-clip-text text-transparent mb-4">
+              YAM.
             </h3>
-            <p className="text-gray-400">
-              Frontend Developer & Computer Science Student passionate about creating beautiful web experiences.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              "Designed with professionalism, creativity, and continuous learning."
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'].map((item) => (
+            <h4 className="font-bold text-lg mb-6 text-royal">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {quickLinks.map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-gray-400 hover:text-cyan-500 transition-colors"
+                    className="text-gray-400 hover:text-royal transition-colors text-sm font-medium text-left cursor-pointer"
                   >
                     {item}
                   </button>
@@ -31,21 +34,21 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h4 className="font-bold text-lg mb-6 text-royal">Connect</h4>
             <div className="flex gap-4">
               {[
-                { icon: FiGithub, href: 'https://github.com/sinaf1997', label: 'GitHub' },
                 { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-                { icon: FiMail, href: 'mailto:sinafmekonnen659@gmail.com', label: 'Email' }
+                { icon: FaTelegramPlane, href: 'https://t.me', label: 'Telegram' },
+                { icon: FiMail, href: 'mailto:yonas.aklilu.m@gmail.com', label: 'Email' },
+                { icon: FaPhone, href: 'tel:+251900000000', label: 'Phone' }
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={href}
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-500 transition-all"
+                  className="w-10 h-10 rounded-full bg-navy-light/80 border border-royal/20 flex items-center justify-center hover:bg-royal hover:text-white transition-all duration-300 text-royal"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -54,9 +57,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p className="flex items-center justify-center gap-1">
-            Made with <FiHeart className="text-red-500" /> by sinaf © {new Date().getFullYear()}
+        <div className="border-t border-navy-light/30 pt-8 text-center text-gray-500 text-xs sm:text-sm">
+          <p className="flex items-center justify-center gap-1.5">
+            Designed with <FiHeart className="text-royal fill-royal" /> by Yonas Aklilu Mekonnen © {new Date().getFullYear()}
           </p>
         </div>
       </div>

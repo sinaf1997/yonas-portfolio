@@ -19,7 +19,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'About', 'Skills', 'Projects', 'Services', 'Contact'];
+  const navItems = ['Home', 'About', 'Education', 'Skills', 'Certifications', 'Experience', 'Projects', 'Contact'];
 
   const scrollToSection = (section: string) => {
     const element = document.getElementById(section.toLowerCase());
@@ -33,7 +33,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
       animate={{ y: 0 }}
       className={`fixed w-full z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+          ? 'bg-white/90 dark:bg-navy-dark/90 backdrop-blur-md shadow-lg border-b border-gray-200/25 dark:border-navy-light/25'
           : 'bg-transparent'
       }`}
     >
@@ -42,20 +42,21 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent"
+            className="text-2xl font-black bg-gradient-to-r from-navy via-royal to-royal-hover bg-clip-text text-transparent dark:from-white dark:via-royal dark:to-royal-hover cursor-pointer"
+            onClick={() => scrollToSection('Home')}
           >
-            Portfolio
+            YAM.
           </motion.div>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6">
             {navItems.map((item, index) => (
               <motion.button
                 key={item}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 onClick={() => scrollToSection(item)}
-                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+                className="text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-royal dark:hover:text-royal transition-colors cursor-pointer"
               >
                 {item}
               </motion.button>
@@ -67,13 +68,13 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
+              className="p-2 rounded-full bg-gray-200 dark:bg-navy-light text-gray-800 dark:text-royal cursor-pointer"
             >
               {darkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
             </motion.button>
 
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-gray-800 dark:text-white"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
@@ -87,13 +88,13 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
+          className="md:hidden bg-white dark:bg-navy-dark border-t border-gray-200 dark:border-navy-light/40"
         >
           {navItems.map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
-              className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="block w-full text-left px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-light/35 hover:text-royal transition-all"
             >
               {item}
             </button>

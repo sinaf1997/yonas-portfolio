@@ -117,6 +117,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  --color-royal: #2563eb;
+  --color-royal-hover: #1d4ed8;
+  --color-light-blue: #60a5fa;
+  --color-navy-light: #1e3a5f;
+  --color-navy: #0a2540;
+  --color-navy-dark: #071a2f;
+  --color-navy-deep: #04111f;
 }
 
 @layer base {
