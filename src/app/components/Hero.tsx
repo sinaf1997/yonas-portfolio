@@ -45,48 +45,38 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center"
       >
-        <motion.div variants={item} className="mb-6">
-          <motion.div
-            animate={{
-              boxShadow: ["0px 0px 20px rgba(37, 99, 235, 0.2)", "0px 0px 40px rgba(96, 165, 250, 0.35)", "0px 0px 20px rgba(37, 99, 235, 0.2)"]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="w-36 h-36 sm:w-40 sm:h-40 mx-auto rounded-full bg-gradient-to-r from-royal via-light-blue to-royal p-1 shadow-2xl"
-          >
+        <motion.div
+          variants={item}
+          whileHover={{ y: -4 }}
+          className="w-[90%] max-w-[380px] h-auto mx-auto mb-8 rounded-2xl overflow-hidden bg-white/90 dark:bg-navy-light/20 border border-royal/20 shadow-2xl shadow-royal/10 backdrop-blur-sm"
+        >
+          <div className="flex items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 dark:from-navy/60 dark:to-navy-deep/80 px-4 py-5">
             <img
               src={profileImage}
               alt="Yonas Aklilu Mekonnen"
-              className="w-full h-full rounded-full object-cover object-[center_18%] border-4 border-white dark:border-navy-deep"
+              className="w-full h-auto max-h-[420px] object-contain object-center mx-auto block"
             />
-          </motion.div>
+          </div>
+
+          <div className="px-5 py-6 text-center">
+            <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 bg-gradient-to-r from-navy via-royal to-royal-hover bg-clip-text text-transparent dark:from-white dark:via-light-blue dark:to-royal leading-tight">
+              Yonas Aklilu Mekonnen
+            </h1>
+
+            <div className="text-sm sm:text-base font-semibold mb-4 text-royal/90 min-h-[3.5rem] leading-relaxed">
+              <span>{text}</span>
+              <span className="animate-ping ml-1 text-royal">|</span>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+              Passionate young professional with backgrounds in engineering and management, focused on creativity, digital skills, and continuous learning.
+            </p>
+          </div>
         </motion.div>
 
-        <motion.h1
-          variants={item}
-          className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-navy via-royal to-royal-hover bg-clip-text text-transparent dark:from-white dark:via-light-blue dark:to-royal"
-        >
-          Yonas Aklilu Mekonnen
-        </motion.h1>
-
-        <motion.div variants={item} className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-royal/90 min-h-[4rem] sm:min-h-[3rem] px-4 max-w-4xl mx-auto leading-relaxed">
-          <span>{text}</span>
-          <span className="animate-ping ml-1 text-royal">|</span>
-        </motion.div>
-
-        <motion.p
-          variants={item}
-          className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed px-4"
-        >
-          "I am a passionate and motivated young professional with academic backgrounds in engineering and management. I focus on creativity, digital skills, continuous learning, and building valuable professional experience."
-        </motion.p>
-
-        <motion.div variants={item} className="flex flex-wrap gap-4 justify-center mb-10 px-4">
+        <motion.div variants={item} className="flex flex-wrap gap-4 justify-center mb-10 px-4 mt-2 w-full">
           <motion.button
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             whileHover={{ scale: 1.05 }}

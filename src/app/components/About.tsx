@@ -29,18 +29,20 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center md:justify-start"
           >
-            <div className="relative z-10">
+            <div className="relative z-10 w-[90%] max-w-[380px] h-auto">
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="aspect-square rounded-2xl overflow-hidden shadow-2xl border border-royal/25"
+                whileHover={{ scale: 1.02 }}
+                className="rounded-2xl overflow-hidden shadow-2xl border border-royal/25 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-navy/60 dark:to-navy-deep/80"
               >
-                <img
-                  src={profileImage}
-                  alt="Yonas Aklilu Mekonnen"
-                  className="w-full h-full object-cover object-[center_18%]"
-                />
+                <div className="flex items-center justify-center px-4 py-5">
+                  <img
+                    src={profileImage}
+                    alt="Yonas Aklilu Mekonnen"
+                    className="w-full h-auto max-h-[420px] object-contain object-center mx-auto block"
+                  />
+                </div>
               </motion.div>
               <div className="absolute -inset-4 bg-gradient-to-r from-navy to-royal rounded-2xl blur-2xl opacity-20 -z-10" />
             </div>
